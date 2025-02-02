@@ -1,24 +1,21 @@
-import React from 'react';
+import React from "react";
 
-const Card = () => {
-    return (
-        <div>
-            <div className="card bg-base-100 w-96 shadow-xl">
-  <figure>
-    <img
-      src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-      alt="Shoes" />
-  </figure>
-  <div className="card-body">
-    <h2 className="card-title">Shoes!</h2>
-    <p>If a dog chews shoes whose shoes does he choose?</p>
-    <div className="card-actions justify-end">
-      <button className="btn btn-primary">Buy Now</button>
-    </div>
-  </div>
-</div>
+const Card = ({ name, description, img }) => {
+  return (
+    <div className="card bg-base-100 w-96 shadow-xl mx-auto mb-4">
+      <figure>
+        <img src={img} alt={name} />
+      </figure>
+      <div className="card-body text-center">
+        <h2 className="text-2xl font-semibold">{name}</h2>
+        <p>{description}</p>
+        <div className="card-actions mt-6 justify-center">
+          <button className="btn btn-primary uppercase text-orange-400 bg-slate-100 border-gray-500 shadow-md shadow-gray-700 hover:bg-slate-600 active:bg-gray-800 hover:text-white">
+            Add to Cart
+          </button>
         </div>
-    );
+      </div>
+    </div>
+  );
 };
-
 export default Card;

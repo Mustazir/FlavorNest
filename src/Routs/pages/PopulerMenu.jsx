@@ -23,7 +23,7 @@ const PopulerMenu = () => {
         subheading={"---Check it out---"}
       ></Title>
 
-      <div className="grid grid-cols-2 gap-8 mb-8">
+      <div className="p-3 md:grid grid-cols-2 gap-8 mb-8">
         {populerItem.map((item) => (
           <MenuItems key={item._id} item={item}></MenuItems>
         ))}
