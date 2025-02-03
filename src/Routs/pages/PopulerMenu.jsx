@@ -7,14 +7,7 @@ const PopulerMenu = () => {
   const [menu] = useMenu();
   const populerItem = menu.filter((item) => item.category === "popular");
 
-  // const [menu,setmenu]=useState([]);
-  // useEffect(( )=>{
-  //     fetch('menu.json')
-  //     .then(res=>res.json())
-  //     .then(data=>{
-  //         const populerItem=data.filter(item=>item.category==="popular")
-  //         setmenu(populerItem)})
-  // },[])
+ 
 
   return (
     <section className="my-32">

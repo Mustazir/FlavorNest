@@ -10,7 +10,7 @@ const MenuItems = ({item}) => {
                 <h1 className="uppercase logo">{name}-------------</h1>
                 {recipe}
             </div>
-            <p>{price}</p>
+            <p>${price}</p>
         </div>
     );
 };

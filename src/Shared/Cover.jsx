@@ -10,14 +10,14 @@ const Cover = ({ img, title, subtitle }) => {
         strength={-200}
       >
         <div
-          className="hero h-[800px]"
+          className="hero h-[700px]"
           
         >
           <div className="hero-overlay bg-opacity-60"></div>
           <div className="hero-content text-neutral-content text-center">
             <div className="w-[1320px] h-[450px] text-center justify-center items-center flex flex-col bg-black bg-opacity-50 text-white">
-              <h1 className="mb-5 text-5xl font-bold">OUR MENU</h1>
-              <p className="mb-5">Would you like to try a dish?</p>
+              <h1 className="mb-5 text-5xl font-bold">{title}</h1>
+              <p className="mb-5">{subtitle}</p>
             </div>
           </div>
         </div>

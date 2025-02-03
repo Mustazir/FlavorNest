@@ -1,24 +1,24 @@
-import Cover from "../../../Shared/Cover";
 import MenuBanner from "./MenuBanner";
 import { Helmet } from "react-helmet-async";
-import MenuImg from "../../../assets/assets/menu/banner3.jpg"
+
 import Recommends from "../Components/Recommends";
+import TodaysOffer from "./TodaysOffer";
+import Dessert from "./Dessert";
+import Pizza from "./Pizza";
 
 const Menu = () => {
   return (
     <section>
       <Helmet>
         <title>FlavourNest | Menu</title>
-       
       </Helmet>
+      <MenuBanner></MenuBanner>
 
-      <Cover img={MenuImg}></Cover>
-
-
-
-      <Recommends></Recommends>
-      
-      <div></div>
+      <div className="max-w-screen-xl mx-auto">
+        <TodaysOffer></TodaysOffer>
+      </div>
+      <Dessert></Dessert>
+      <Pizza></Pizza>
     </section>
   );
 };
