@@ -3,6 +3,7 @@ import Main from "../../public/Layout/Main";
 
 import Home from "./pages/home";
 import Menu from "./pages/Menu/Menu";
+import OrderTab from "./pages/OrderTab/OrderTab";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -13,8 +14,12 @@ export const router = createBrowserRouter([
         element: <Home></Home>,
       },
       {
-        path:"/menu",
+        path:"menu",
         element:<Menu></Menu>
+      },
+      {
+        path:"order",
+        element:<OrderTab></OrderTab>
       }
     ],
   },

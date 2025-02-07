@@ -15,10 +15,10 @@ const Nav = () => {
         <a>DASHBOARD</a>
       </li>
       <li>
-        <Link to='/menu'>Our Menu</Link>
+        <Link to='menu'>Our Menu</Link>
       </li>
       <li>
-        <a>Our Shop</a>
+        <Link to='order'>Our Shop</Link>
       </li>
     </>
   );
