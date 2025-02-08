@@ -4,23 +4,14 @@ import bannerimg from "../../../assets/assets/shop/banner2.jpg";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import useMenu from "../../../Shared/useMenu";
+import Card from "../../../Shared/Card";
 
 const OrderTab = () => {
   const [tabIndex, setTabIndex] = useState(0);
-  const [menu, setMenu] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    fetch("menu.json")
-      .then((res) => res.json())
-      .then((data) => {
-        setMenu(data);
-        setLoading(false);
-      });
-  }, []);
+  const [menu] = useMenu();
 
   // Get unique categories from the menu
-  const uniqueCategories = [...new Set(menu.map(item => item.category))];
+  const uniqueCategories = [...new Set(menu.map((item) => item.category))];
 
   return (
     <div>
@@ -40,14 +31,18 @@ const OrderTab = () => {
         {uniqueCategories.map((category, index) => (
           <TabPanel key={index}>
             {/* You can map over the menu and show items that belong to this category */}
-            {menu
-              .filter((item) => item.category === category)
-              .map((item) => (
-                <div key={item._id}>
-                  <h2>{item.name}</h2>
-                  {/* Add more item details here */}
-                </div>
-              ))}
+            <div className="grid grid-cols-3 max-w-screen-xl mx-auto">
+              {menu
+                .filter((item) => item.category === category)
+                .map((item) => (
+                  <Card
+                    key={item._id}
+                    name={item.name}
+                    description={item.recipe}
+                    img={item.image}
+                  ></Card>
+                ))}
+            </div>
           </TabPanel>
         ))}
       </Tabs>
@@ -56,3 +51,12 @@ const OrderTab = () => {
 };
 
 export default OrderTab;
+
+
+
+
+
+
+
+
+
