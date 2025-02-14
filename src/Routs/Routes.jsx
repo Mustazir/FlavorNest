@@ -14,18 +14,21 @@ export const router = createBrowserRouter([
         element: <Home></Home>,
       },
       {
-        path:"menu",
-        element:<Menu></Menu>
+        path: "menu",
+        element: <Menu></Menu>,
       },
       {
-        path:"order",
-        element:<OrderTab></OrderTab>
-      }
-      ,
+        path: "order",
+        element: <OrderTab></OrderTab>,
+        loader: () => fetch("http://localhost:5000/menuProductCount"),
+      },
       {
-        path:"order/:category",
-        element:<OrderTab></OrderTab>
-      }
+        path: "order/:category",
+        element: <OrderTab></OrderTab>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/menucount/${params.category}`), // ✅ Fetch category-wise count
+      },
     ],
   },
 ]);
+
