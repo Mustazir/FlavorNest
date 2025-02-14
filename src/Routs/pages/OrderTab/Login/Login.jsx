@@ -1,20 +1,41 @@
-import React from "react";
+import { useEffect, useRef, useState } from "react";
+import {
+  loadCaptchaEnginge,
+  LoadCanvasTemplate,
+  LoadCanvasTemplateNoReload,
+  validateCaptcha,
+} from "react-simple-captcha";
 
 const Login = () => {
+  const [disable, setDisable] = useState(true);
+  const [visible,setVisible]=useState(true)
 
-
-    const handleLogin = e =>{
-        e.preventDefault();
-        const form =e.target;
-        const email =form.email.value;
-        const password =form.password.value;
-        console.log(email,password)
-        
+  const captchaRef = useRef(null);
+  const handleValidateCaptcha = () => {
+    const value = captchaRef.current.value;
+    if (validateCaptcha(value) == true) {
+      setDisable(false)
+      setVisible(false)
+      alert("Captcha Matched");
+    } else {
+      alert("Captcha Does Not Match");
     }
+  };
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(email, password);
+  };
+  useEffect(() => {
+    loadCaptchaEnginge(6);
+  }, []);
 
   return (
-    <div>
-      <div className="hero bg-base-200 min-h-screen">
+    <div className="max-w-5xl mx-auto">
+      <div className="hero  min-h-screen">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="text-center lg:text-left">
             <h1 className="text-5xl font-bold">Login now!</h1>
@@ -55,8 +76,33 @@ const Login = () => {
                   </a>
                 </label>
               </div>
+              <div className={`form-control ${visible ? 'flex' : 'hidden'}`} >
+                <LoadCanvasTemplate />
+                <label className="label"></label>
+                <input
+                  type="text"
+                  ref={captchaRef}
+                  name="captcha"
+                  placeholder="type captcha"
+                  className="input input-bordered"
+                  required
+                />
+                <button
+                  
+                  onClick={handleValidateCaptcha}
+                  className="btn btn-outline btn-xs mt-3"
+                >
+                  Validate
+                </button>
+              </div>
+
               <div className="form-control mt-6">
-               <input className="btn btn-primary" type="submit" value='Login' />
+                <input
+                disabled={disable}
+                  className="btn btn-primary"
+                  type="submit"
+                  value="Login"
+                />
               </div>
             </form>
           </div>
