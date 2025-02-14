@@ -4,6 +4,7 @@ import Main from "../../public/Layout/Main";
 import Home from "./pages/home";
 import Menu from "./pages/Menu/Menu";
 import OrderTab from "./pages/OrderTab/OrderTab";
+import Login from "./pages/OrderTab/Login/Login";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -28,6 +29,10 @@ export const router = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`http://localhost:5000/menucount/${params.category}`), // ✅ Fetch category-wise count
       },
+      {
+        path : 'login',
+        element : <Login></Login>
+      }
     ],
   },
 ]);

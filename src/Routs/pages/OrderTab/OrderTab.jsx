@@ -100,7 +100,7 @@ const OrderTab = () => {
           {/* Previous Button */}
           <button
             onClick={handlePreviousPage}
-            className="mx-3 rounded-full bg-green-400 py-3 px-5 border border-gray-700 hover:bg-red-800 hover:text-white cursor-pointer"
+            className="text-xs mx-3 rounded-full bg-green-400 py-2 px-3 border border-gray-700 hover:bg-red-800 hover:text-white cursor-pointer"
             disabled={currentPage === 0}
           >
             Previous
@@ -111,7 +111,7 @@ const OrderTab = () => {
             <button
               key={page}
               onClick={() => setCurrentPage(page)}
-              className={`mx-3 rounded-full py-3 px-5 border border-gray-700 ${
+              className={`mx-3 rounded-full text-xs py-2 px-4 border border-gray-700 ${
                 currentPage === page
                   ? "bg-black text-white"
                   : "bg-green-400 hover:bg-red-800 hover:text-white active:bg-green-950 active:text-white cursor-pointer"
@@ -124,7 +124,7 @@ const OrderTab = () => {
           {/* Next Button */}
           <button
             onClick={handleNextPage}
-            className="mx-3 rounded-full bg-green-400 py-3 px-5 border border-gray-700 hover:bg-red-800 hover:text-white cursor-pointer"
+            className="mx-3 rounded-full bg-green-400 text-xs py-2 px-3 border border-gray-700 hover:bg-red-800 hover:text-white cursor-pointer"
             disabled={currentPage === totalNoOfPages - 1}
           >
             Next
