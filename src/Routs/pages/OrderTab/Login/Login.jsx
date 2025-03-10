@@ -111,6 +111,8 @@ const Login = () => {
                   value="Login"
                 />
               </div>
+              <div> <h1>Don't have an account? </h1>
+              </div>
             </form>
           </div>
         </div>
